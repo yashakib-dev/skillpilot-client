@@ -3,6 +3,7 @@ import { Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/common/Navbar";
 import Footer from "@/components/common/Footer";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -44,6 +45,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+          <Toaster />
       </body>
     </html>
   );

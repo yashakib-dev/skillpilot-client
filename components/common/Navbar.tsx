@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useSession, authClient } from "@/app/lib/auth-client";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -16,6 +17,19 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
+  const { data: session, isPending } = useSession();
+
+  const handleSignOut = async () => {
+    await authClient.signOut({
+      fetchOptions: {
+        onSuccess: () => {
+          router.push('/');
+          router.refresh();
+        }
+      }
+    });
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -73,15 +87,37 @@ export default function Navbar() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <Link href="/auth/login" className="inline-flex items-center rounded-full border border-slate-700 bg-transparent px-4 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-indigo-400 hover:bg-indigo-500/10 hover:text-white">
-              Sign In
-            </Link>
-            <Link href="/auth/register" className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo-500 to-violet-500 px-4 py-2.5 text-sm font-semibold text-white shadow-[0_4px_20px_rgba(99,102,241,0.4)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(99,102,241,0.6)]">
-              Get Started
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </Link>
+            {isPending ? (
+              <div className="h-10 w-24 animate-pulse rounded-full bg-slate-800" />
+            ) : session ? (
+              <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2">
+                  <div className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-indigo-500/20 font-bold uppercase text-indigo-300">
+                    {session.user?.image ? (
+                      <img src={session.user.image} alt={session.user.name} className="h-full w-full object-cover" />
+                    ) : (
+                      session.user?.name?.charAt(0) || "U"
+                    )}
+                  </div>
+                  <span className="text-sm font-medium text-slate-200">{session.user?.name}</span>
+                </div>
+                <button onClick={handleSignOut} className="inline-flex items-center rounded-full border border-slate-700 bg-transparent px-4 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-red-400 hover:bg-red-500/10 hover:text-red-400">
+                  Sign Out
+                </button>
+              </div>
+            ) : (
+              <>
+                <Link href="/auth/login" className="inline-flex items-center rounded-full border border-slate-700 bg-transparent px-4 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-indigo-400 hover:bg-indigo-500/10 hover:text-white">
+                  Sign In
+                </Link>
+                <Link href="/auth/register" className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo-500 to-violet-500 px-4 py-2.5 text-sm font-semibold text-white shadow-[0_4px_20px_rgba(99,102,241,0.4)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(99,102,241,0.6)]">
+                  Get Started
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </>
+            )}
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -112,12 +148,37 @@ export default function Navbar() {
               </Link>
             ))}
             <div className="mt-3 flex flex-col gap-2 border-t border-white/10 pt-3">
-              <Link href="/auth/login" className="inline-flex items-center justify-center rounded-full border border-slate-700 bg-transparent px-4 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-indigo-400 hover:bg-indigo-500/10 hover:text-white">
-                Sign In
-              </Link>
-              <Link href="/auth/register" className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 to-violet-500 px-4 py-2.5 text-sm font-semibold text-white shadow-[0_4px_20px_rgba(99,102,241,0.4)] transition hover:-translate-y-0.5">
-                Get Started Free
-              </Link>
+              {isPending ? (
+                 <div className="h-10 w-full animate-pulse rounded-full bg-slate-800" />
+              ) : session ? (
+                <>
+                  <div className="flex items-center gap-3 px-3 py-2">
+                    <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-indigo-500/20 font-bold uppercase text-indigo-300">
+                      {session.user?.image ? (
+                        <img src={session.user.image} alt={session.user.name} className="h-full w-full object-cover" />
+                      ) : (
+                        session.user?.name?.charAt(0) || "U"
+                      )}
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-sm font-medium text-slate-200">{session.user?.name}</span>
+                      <span className="text-xs text-slate-400">{session.user?.email}</span>
+                    </div>
+                  </div>
+                  <button onClick={handleSignOut} className="inline-flex w-full items-center justify-center rounded-full border border-red-500/30 bg-red-500/10 px-4 py-2.5 text-sm font-semibold text-red-400 transition hover:bg-red-500/20">
+                    Sign Out
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link href="/auth/login" className="inline-flex items-center justify-center rounded-full border border-slate-700 bg-transparent px-4 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-indigo-400 hover:bg-indigo-500/10 hover:text-white">
+                    Sign In
+                  </Link>
+                  <Link href="/auth/register" className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 to-violet-500 px-4 py-2.5 text-sm font-semibold text-white shadow-[0_4px_20px_rgba(99,102,241,0.4)] transition hover:-translate-y-0.5">
+                    Get Started Free
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </div>

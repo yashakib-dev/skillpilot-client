@@ -3,12 +3,15 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { authClient } from "@/app/lib/auth-client";
+import toast from "react-hot-toast";
 
 export default function LoginPage() {
   const router = useRouter();
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({ email: "", password: "", general: "" });
   const [isLoading, setIsLoading] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
   const validateForm = () => {
     let isValid = true;
@@ -36,20 +39,76 @@ export default function LoginPage() {
     if (!validateForm()) return;
 
     setIsLoading(true);
-    setTimeout(() => {
+   try {
+      const { data: res, error } = await authClient.signIn.email({
+        email: formData.email,
+        password: formData.password,
+      });
+
+      if (error) {
+        toast.error(error.message ?? 'Invalid email or password.');
+        setIsSubmitting(false);
+        return;
+      }
+
+      if (res) {
+        toast.success('Logged in successfully!');
+        router.push('/');
+        router.refresh();
+      }
+    } catch {
+      toast.error('Something went wrong. Please try again.');
+    } finally {
       setIsLoading(false);
-      router.push("/dashboard");
-    }, 1500);
+      setIsSubmitting(false);
+    }
   };
 
-  const handleDemoLogin = () => {
+  const handleDemoLogin = async () => {
     setIsLoading(true);
-    setFormData({ email: "demo@skillpilot.com", password: "demopassword" });
+    const demoEmail = "demo@skillpilot.com";
+    const demoPassword = "demopassword";
     
-    setTimeout(() => {
+    try {
+      const { data: res, error } = await authClient.signIn.email({
+        email: demoEmail,
+        password: demoPassword,
+      });
+
+      if (error) {
+        // If it fails, likely the demo user doesn't exist yet, so let's create it
+        const { error: signUpError } = await authClient.signUp.email({
+          email: demoEmail,
+          password: demoPassword,
+          name: "Demo User",
+          image: "https://api.dicebear.com/7.x/avataaars/svg?seed=DemoUser&backgroundColor=6366f1",
+        });
+
+        if (!signUpError) {
+          // Sign in again after creation
+          const { data: retryRes } = await authClient.signIn.email({
+            email: demoEmail,
+            password: demoPassword,
+          });
+          
+          if (retryRes) {
+            toast.success('Logged in as Demo User!');
+            router.push('/');
+            router.refresh();
+            return;
+          }
+        }
+        toast.error('Failed to login to demo account.');
+      } else if (res) {
+        toast.success('Logged in as Demo User!');
+        router.push('/');
+        router.refresh();
+      }
+    } catch {
+      toast.error('Something went wrong during demo login.');
+    } finally {
       setIsLoading(false);
-      router.push("/dashboard");
-    }, 1000);
+    }
   };
 
   return (

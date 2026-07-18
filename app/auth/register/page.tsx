@@ -3,12 +3,16 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
+import { authClient } from "@/app/lib/auth-client";
 
 export default function RegisterPage() {
   const router = useRouter();
   const [formData, setFormData] = useState({ name: "", email: "", password: "", imageUrl: "" });
   const [errors, setErrors] = useState({ name: "", email: "", password: "", general: "" });
   const [isLoading, setIsLoading] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const validateForm = () => {
     let isValid = true;
@@ -45,12 +49,33 @@ export default function RegisterPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm()) return;
+        setIsSubmitting(true);
 
-    setIsLoading(true);
-    setTimeout(() => {
+    try {
+      const { data: res, error } = await authClient.signUp.email({
+        name: formData?.name,
+        email: formData?.email,
+        password: formData?.password,
+        image: formData?.imageUrl || '',
+      });
+
+      if (error) {
+        toast.error(error.message ?? 'Registration failed.');
+        setIsSubmitting(false);
+        return;
+      }
+
+      if (res) {
+        toast.success('Registration successful!');
+        router.push('/');
+        router.refresh();
+      }
+    } catch {
+      toast.error('Something went wrong. Please try again.');
+    } finally {
       setIsLoading(false);
-      router.push("/dashboard");
-    }, 1500);
+      setIsSubmitting(false);
+    }
   };
 
   return (

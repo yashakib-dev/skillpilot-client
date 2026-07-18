@@ -11,7 +11,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-slate-950 pt-24">
+    <section className="relative flex min-h-screen mt-10 items-center justify-center overflow-hidden bg-slate-950 pt-24">
       {/* Background elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute left-1/4 top-1/4 h-96 w-96 rounded-full bg-indigo-500/20 blur-[120px]" style={{ animationDuration: '4s' }} />
