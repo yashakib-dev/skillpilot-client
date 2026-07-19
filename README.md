@@ -1,4 +1,4 @@
-# SkillPilot - Requirements Mapping & Implementation Roadmap 🎯
+# SkillPilot - AI-powered Career Roadmap Generator & AI Assistant
 
 ## 📋 Overview
 
