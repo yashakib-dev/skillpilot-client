@@ -110,6 +110,18 @@ export default function LoginPage() {
       setIsLoading(false);
     }
   };
+  const handleGoogleSignIn = async () => {
+    setIsLoading(true);
+    try {
+      await authClient.signIn.social({
+        provider: "google",
+        callbackURL: "/",
+      });
+    } catch {
+      toast.error("Failed to sign in with Google.");
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div>
@@ -187,8 +199,9 @@ export default function LoginPage() {
         </button>
 
         <button 
-          type="button" 
-          className="flex w-full items-center justify-center rounded-full border border-white/10 bg-slate-800/70 py-3 font-semibold text-slate-200 transition hover:border-indigo-400/40"
+          type="button"
+          onClick={handleGoogleSignIn}
+          className="flex w-full items-center justify-center rounded-full border border-white/10 bg-slate-800/70 py-3 font-semibold text-slate-200 transition hover:border-indigo-400/40 disabled:opacity-50"
           disabled={isLoading}
         >
           <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">

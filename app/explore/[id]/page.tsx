@@ -325,7 +325,7 @@ export default async function CareerDetailPage({ params }: { params: Promise<{ i
               Build a personalized learning plan and track your progress from day one.
             </p>
             <Link
-              href="/explore"
+              href="/dashboard"
               className="mt-6 inline-flex items-center justify-center rounded-full bg-white px-5 py-3 font-semibold text-slate-900 transition hover:bg-slate-100"
             >
               Start Roadmap
