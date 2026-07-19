@@ -18,7 +18,14 @@ export async function GET(
       cache: "no-store",
     });
 
-    const data = await res.json();
+    const text = await res.text();
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch {
+      console.error("GET /api/careers/[id] error: Express server returned non-JSON response:", text.substring(0, 200));
+      return NextResponse.json({ error: "Backend server returned an invalid response" }, { status: 502 });
+    }
     return NextResponse.json(data, { status: res.status });
   } catch (error) {
     console.error("GET /api/careers/[id] error:", error);
@@ -46,7 +53,14 @@ export async function PATCH(
       body: JSON.stringify(body),
     });
 
-    const data = await res.json();
+    const text = await res.text();
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch {
+      console.error("PATCH /api/careers/[id] error: Express server returned non-JSON response:", text.substring(0, 200));
+      return NextResponse.json({ error: "Backend server returned an invalid response" }, { status: 502 });
+    }
     return NextResponse.json(data, { status: res.status });
   } catch (error) {
     console.error("PATCH /api/careers/[id] error:", error);
@@ -69,7 +83,14 @@ export async function DELETE(
       headers: { "x-user-id": session.user.id },
     });
 
-    const data = await res.json();
+    const text = await res.text();
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch {
+      console.error("DELETE /api/careers/[id] error: Express server returned non-JSON response:", text.substring(0, 200));
+      return NextResponse.json({ error: "Backend server returned an invalid response" }, { status: 502 });
+    }
     return NextResponse.json(data, { status: res.status });
   } catch (error) {
     console.error("DELETE /api/careers/[id] error:", error);

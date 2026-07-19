@@ -19,7 +19,7 @@ function normalizeCareer(item: Partial<Career> & Record<string, unknown>): Caree
     : "Beginner";
 
   return {
-    id: String(item.id ?? ""),
+    id: String(item._id ?? item.id ?? ""),
     title: String(item.title ?? "Untitled career"),
     description: String(item.description ?? "A career path with flexible learning options."),
     difficulty: safeDifficulty,
@@ -123,9 +123,7 @@ function getRelatedCareers(currentCareer: Career, careers: Career[]) {
   return careers.filter((career) => career.id !== currentCareer.id).slice(0, 4);
 }
 
-export function generateStaticParams() {
-  return [];
-}
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const { id } = await params;

@@ -19,7 +19,14 @@ export async function GET() {
       cache: "no-store",
     });
 
-    const data = await res.json();
+    const text = await res.text();
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch {
+      console.error("GET /api/careers error: Express server returned non-JSON response:", text.substring(0, 200));
+      return NextResponse.json({ error: "Backend server returned an invalid response" }, { status: 502 });
+    }
     return NextResponse.json(data, { status: res.status });
   } catch (error) {
     console.error("GET /api/careers error:", error);
@@ -48,7 +55,14 @@ export async function POST(request: Request) {
       body: JSON.stringify(body),
     });
 
-    const data = await res.json();
+    const text = await res.text();
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch {
+      console.error("POST /api/careers error: Express server returned non-JSON response:", text.substring(0, 200));
+      return NextResponse.json({ error: "Backend server returned an invalid response" }, { status: 502 });
+    }
     return NextResponse.json(data, { status: res.status });
   } catch (error) {
     console.error("POST /api/careers error:", error);

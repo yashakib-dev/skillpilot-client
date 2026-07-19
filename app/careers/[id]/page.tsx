@@ -1,4 +1,5 @@
-import CareerDetailPage, { generateMetadata, generateStaticParams } from "@/app/explore/[id]/page";
+import CareerDetailPage, { generateMetadata } from "@/app/explore/[id]/page";
 
-export { generateMetadata, generateStaticParams };
+export { generateMetadata };
+export { dynamic } from "@/app/explore/[id]/page";
 export default CareerDetailPage;

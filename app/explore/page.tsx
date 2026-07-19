@@ -39,7 +39,7 @@ function normalizeCareer(item: Partial<Career> & Record<string, unknown>): Caree
     : "Beginner";
 
   return {
-    id: String(item.id ?? ""),
+    id: String(item._id ?? item.id ?? ""),
     title: String(item.title ?? "Untitled career"),
     description: String(item.description ?? "A career path with flexible learning options."),
     difficulty: safeDifficulty,
