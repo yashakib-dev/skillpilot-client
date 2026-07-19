@@ -112,7 +112,7 @@ export default function AIFeatures() {
                   </li>
                 ))}
               </ul>
-              <Link href="/auth/register" className="flex items-center gap-2 font-semibold text-pink-400 transition-colors group-hover:text-pink-300">
+              <Link href="/mentor" className="flex items-center gap-2 font-semibold text-pink-400 transition-colors group-hover:text-pink-300">
                 Meet Your Mentor
                 <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M5 12h14M12 5l7 7-7 7" />

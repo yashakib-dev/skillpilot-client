@@ -25,7 +25,7 @@ export default function CTA() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/auth/register" className="w-full rounded-full bg-gradient-to-r from-indigo-500 to-violet-500 px-10 py-4 text-lg font-semibold text-white shadow-[0_4px_20px_rgba(99,102,241,0.4)] transition hover:-translate-y-0.5 sm:w-auto">
+              <Link href="/dashboard" className="w-full rounded-full bg-gradient-to-r from-indigo-500 to-violet-500 px-10 py-4 text-lg font-semibold text-white shadow-[0_4px_20px_rgba(99,102,241,0.4)] transition hover:-translate-y-0.5 sm:w-auto">
                 Get Started for Free
               </Link>
               <Link href="/explore" className="w-full rounded-full border border-slate-700 bg-slate-950/70 px-10 py-4 text-lg font-semibold text-slate-200 transition hover:border-indigo-400 hover:bg-indigo-500/10 hover:text-white sm:w-auto">
