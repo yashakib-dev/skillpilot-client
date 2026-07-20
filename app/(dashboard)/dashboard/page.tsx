@@ -36,7 +36,7 @@ export default function DashboardOverviewPage() {
         const data = await res.json();
         setCareers(data);
       } catch (error) {
-        toast.error("Failed to load dashboard stats");
+        toast("Please login to access dashboard.");
       } finally {
         setIsLoading(false);
       }
