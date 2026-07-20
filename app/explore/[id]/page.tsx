@@ -207,7 +207,7 @@ export default async function CareerDetailPage({ params }: { params: Promise<{ i
                 </div>
 
                 <Link
-                  href="/explore"
+                  href="/dashboard"
                   className="inline-flex items-center justify-center rounded-full bg-indigo-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-indigo-500"
                 >
                   Start Roadmap
