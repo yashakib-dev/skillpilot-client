@@ -273,6 +273,7 @@ function MentorPageInner() {
         <div className="flex items-center gap-3">
           <button
             onClick={() => setShowHistory(!showHistory)}
+            aria-label="Toggle conversation history"
             className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-800 text-slate-400 transition-colors hover:bg-slate-700 hover:text-white lg:hidden"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -329,6 +330,7 @@ function MentorPageInner() {
                 <h2 className="text-sm font-bold text-white">Conversations</h2>
                 <button
                   onClick={() => setShowHistory(false)}
+                  aria-label="Close conversation history"
                   className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 lg:hidden"
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -463,6 +465,7 @@ function MentorPageInner() {
               <button
                 onClick={handleSend}
                 disabled={!input.trim() || isLoading}
+                aria-label="Send message"
                 className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white transition-all hover:bg-indigo-500 disabled:opacity-40 disabled:hover:bg-indigo-600"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

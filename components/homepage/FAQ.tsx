@@ -54,6 +54,7 @@ export default function FAQ() {
               <button
                 className="flex w-full items-center justify-between px-6 py-5 text-left focus:outline-none"
                 onClick={() => toggleFaq(idx)}
+                aria-label={faq.question}
                 aria-expanded={openIdx === idx}
               >
                 <span className="pr-4 font-semibold text-slate-100">

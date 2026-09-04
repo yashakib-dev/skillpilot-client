@@ -194,6 +194,7 @@ export default function Sidebar() {
       {/* Mobile sidebar toggle */}
       <button
         onClick={() => setDrawerOpen(true)}
+        aria-label="Open navigation menu"
         className="lg:hidden fixed top-20 right-4 z-40 min-w-10 w-10 h-10 p-0 flex items-center justify-center rounded-xl bg-slate-950/90 border border-slate-800 text-slate-300 backdrop-blur-md transition-all shadow-lg shadow-black/40 hover:text-white hover:border-slate-700"
       >
         <SidebarIcon className="w-5 h-5" />
@@ -228,6 +229,7 @@ export default function Sidebar() {
           </Link>
           <button
             onClick={() => setDrawerOpen(false)}
+            aria-label="Close navigation menu"
             className="h-8 w-8 flex items-center justify-center rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition"
           >
             <CloseIcon className="h-5 w-5" />

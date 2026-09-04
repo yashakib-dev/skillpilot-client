@@ -74,7 +74,7 @@ export default function Footer() {
 
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-slate-500 md:flex-row">
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-slate-400 md:flex-row">
           <p>© {new Date().getFullYear()} SkillPilot. All rights reserved.</p>
           <div className="flex items-center gap-2">
             <span>Built with</span>
