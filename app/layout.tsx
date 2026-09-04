@@ -17,12 +17,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SkillPilot — AI-Powered Career Roadmaps",
+  title: "SkillPilot - AI-Powered Career Roadmaps",
   description:
     "Navigate your career with AI-generated personalized learning roadmaps, smart skill recommendations, and a dedicated career mentor. Build the future you want with SkillPilot.",
   keywords: ["career planning", "AI roadmap", "skill development", "career mentor", "learning path"],
   openGraph: {
-    title: "SkillPilot — AI-Powered Career Roadmaps",
+    title: "SkillPilot - AI-Powered Career Roadmaps",
     description: "Navigate your career with AI-generated personalized learning roadmaps.",
     type: "website",
   },
