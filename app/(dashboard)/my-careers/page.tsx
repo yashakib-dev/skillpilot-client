@@ -175,7 +175,7 @@ export default function MyCareersPage() {
             </div>
             <h3 className="text-xl font-semibold text-white">No Career Plans Yet</h3>
             <p className="mt-2 mb-6 max-w-md text-sm text-slate-400">
-              You haven't created any career roadmaps. Start your journey by creating a new plan and generating an AI-guided roadmap.
+              You haven&apos;t created any career roadmaps. Start your journey by creating a new plan and generating an AI-guided roadmap.
             </p>
             <Link
               href="/add-career"
@@ -210,7 +210,7 @@ export default function MyCareersPage() {
                     </div>
                     <div className="h-2 w-full overflow-hidden rounded-full bg-slate-800">
                       <div
-                        className="h-full rounded-full bg-gradient-to-r from-indigo-500 to-cyan-500 transition-all duration-500"
+                        className="h-full rounded-full bg-linear-to-r from-indigo-500 to-cyan-500 transition-all duration-500"
                         style={{ width: `${career.progress}%` }}
                       />
                     </div>

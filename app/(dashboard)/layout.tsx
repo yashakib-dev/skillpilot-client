@@ -1,4 +1,5 @@
 import React from "react";
+import { Toaster } from "react-hot-toast";
 import Sidebar from "@/components/dashboard/Sidebar";
 
 export const metadata = {
@@ -20,6 +21,7 @@ export default function DashboardLayout({
           {children}
         </div>
       </main>
+      <Toaster />
     </div>
   );
 }

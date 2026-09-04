@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import type { Career, DifficultyLevel } from "@/types/career";
@@ -198,10 +199,13 @@ export default async function CareerDetailPage({ params }: { params: Promise<{ i
 
               <div className="flex w-full flex-col gap-4 lg:w-[320px] lg:shrink-0">
                 <div className="relative overflow-hidden rounded-[22px] border border-white/10 bg-slate-950/70">
-                  <img
+                  <Image
                     src={career.coverImage}
                     alt={career.title}
-                    className="h-52 w-full object-cover sm:h-56 lg:h-64"
+                    fill
+                    preload
+                    sizes="(max-width: 1024px) 100vw, 320px"
+                    className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/20 to-transparent" />
                 </div>

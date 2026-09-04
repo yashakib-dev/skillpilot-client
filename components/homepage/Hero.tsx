@@ -1,15 +1,6 @@
-"use client";
-
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 export default function Hero() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
     <section className="relative flex min-h-screen mt-10 items-center justify-center overflow-hidden bg-slate-950 pt-24">
       {/* Background elements */}
@@ -22,7 +13,7 @@ export default function Hero() {
       <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center px-6 text-center lg:px-8">
         {/* Animated badge */}
         <div
-          className={`mb-5 inline-flex items-center rounded-full border border-indigo-400/30 bg-indigo-500/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-indigo-300 transition-all duration-500 ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
+          className="mb-5 inline-flex translate-y-0 items-center rounded-full border border-indigo-400/30 bg-indigo-500/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-indigo-300 opacity-100 transition-all duration-500"
           style={{ transitionDelay: '100ms' }}
         >
           <span className="relative flex h-2 w-2 mr-2">
@@ -34,7 +25,7 @@ export default function Hero() {
 
         {/* Main headline */}
         <h1
-          className={`mb-6 max-w-4xl text-5xl font-extrabold tracking-tight text-slate-100 transition-all duration-500 md:text-7xl ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
+          className="mb-6 max-w-4xl translate-y-0 text-5xl font-extrabold tracking-tight text-slate-100 opacity-100 transition-all duration-500 md:text-7xl"
           style={{ transitionDelay: '200ms', lineHeight: 1.1 }}
         >
           Navigate Your Career With <br className="hidden md:block" />
@@ -43,7 +34,7 @@ export default function Hero() {
 
         {/* Subheadline */}
         <p
-          className={`mb-10 max-w-2xl text-lg text-slate-400 transition-all duration-500 md:text-xl ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
+          className="mb-10 max-w-2xl translate-y-0 text-lg text-slate-400 opacity-100 transition-all duration-500 md:text-xl"
           style={{ transitionDelay: '300ms' }}
         >
           Stop guessing your next move. Get personalized learning roadmaps, smart skill recommendations, and an AI mentor to guide you to your dream role.
@@ -51,7 +42,7 @@ export default function Hero() {
 
         {/* CTA Buttons */}
         <div
-          className={`flex flex-col items-center gap-4 transition-all duration-500 sm:flex-row ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
+          className="flex translate-y-0 flex-col items-center gap-4 opacity-100 transition-all duration-500 sm:flex-row"
           style={{ transitionDelay: '400ms' }}
         >
           <Link href="/add-career" className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-linear-to-r from-indigo-500 to-violet-500 px-8 py-4 text-lg font-semibold text-white shadow-[0_4px_20px_rgba(99,102,241,0.4)] transition hover:-translate-y-0.5 sm:w-auto">
@@ -67,7 +58,7 @@ export default function Hero() {
 
         {/* Floating UI Elements Mockup */}
         <div
-          className={`relative mx-auto mt-20 w-full max-w-5xl transition-all duration-500 ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}
+          className="relative mx-auto mt-20 w-full max-w-5xl translate-y-0 opacity-100 transition-all duration-500"
           style={{ transitionDelay: '600ms' }}
         >
           <div className="absolute inset-0 bottom-0 z-10 h-full w-full bg-linear-to-t from-slate-950 via-transparent to-transparent" />

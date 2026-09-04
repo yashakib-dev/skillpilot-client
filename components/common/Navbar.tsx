@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { useSession, authClient } from "@/app/lib/auth-client";
@@ -94,7 +95,14 @@ export default function Navbar() {
                 <div className="flex items-center gap-2">
                   <div className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-indigo-500/20 font-bold uppercase text-indigo-300">
                     {session.user?.image ? (
-                      <img src={session.user.image} alt={session.user.name} className="h-full w-full object-cover" />
+                      <Image
+                        src={session.user.image}
+                        alt={session.user.name || "User avatar"}
+                        width={36}
+                        height={36}
+                        unoptimized
+                        className="h-full w-full object-cover"
+                      />
                     ) : (
                       session.user?.name?.charAt(0) || "U"
                     )}
@@ -155,7 +163,14 @@ export default function Navbar() {
                   <div className="flex items-center gap-3 px-3 py-2">
                     <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-indigo-500/20 font-bold uppercase text-indigo-300">
                       {session.user?.image ? (
-                        <img src={session.user.image} alt={session.user.name} className="h-full w-full object-cover" />
+                        <Image
+                          src={session.user.image}
+                          alt={session.user.name || "User avatar"}
+                          width={40}
+                          height={40}
+                          unoptimized
+                          className="h-full w-full object-cover"
+                        />
                       ) : (
                         session.user?.name?.charAt(0) || "U"
                       )}

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import toast from "react-hot-toast";
@@ -244,7 +245,14 @@ export default function CareerDetailPage() {
       {/* Optional image */}
       {career.imageUrl && (
         <div className="overflow-hidden rounded-2xl border border-slate-800">
-          <img src={career.imageUrl} alt={career.title} className="h-48 w-full object-cover" />
+          <Image
+            src={career.imageUrl}
+            alt={career.title}
+            width={1200}
+            height={384}
+            unoptimized
+            className="h-48 w-full object-cover"
+          />
         </div>
       )}
 

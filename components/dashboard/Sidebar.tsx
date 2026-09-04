@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { authClient, useSession } from "@/app/lib/auth-client";
@@ -134,7 +135,14 @@ export default function Sidebar() {
       <div className="flex items-center gap-3 px-3 py-3 rounded-xl bg-slate-800/40 mb-3">
         <div className="h-9 w-9 shrink-0 overflow-hidden rounded-full bg-indigo-500/20 flex items-center justify-center text-sm font-bold text-indigo-300">
           {user?.image ? (
-            <img src={user.image} alt={user.name} className="h-full w-full object-cover" />
+            <Image
+              src={user.image}
+              alt={user.name || "User avatar"}
+              width={36}
+              height={36}
+              unoptimized
+              className="h-full w-full object-cover"
+            />
           ) : (
             user?.name?.charAt(0).toUpperCase() || "U"
           )}

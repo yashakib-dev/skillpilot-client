@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   title: "Authentication | SkillPilot",
@@ -41,6 +42,7 @@ export default function AuthLayout({
           {children}
         </div>
       </div>
+      <Toaster />
     </div>
   );
 }

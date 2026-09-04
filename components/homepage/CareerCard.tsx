@@ -1,4 +1,5 @@
 import type { Career, DifficultyLevel } from "@/types/career";
+import Image from "next/image";
 import Link from "next/link";
 
 const difficultyConfig: Record<
@@ -24,9 +25,12 @@ export function CareerCard({ career }: CareerCardProps) {
       aria-label={`Career card for ${career.title}`}
     >
       <div className="relative h-40 w-full shrink-0 overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-          style={{ backgroundImage: `url(${career.coverImage})` }}
+        <Image
+          src={career.coverImage}
+          alt={`${career.title} career path`}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-slate-900/40 to-transparent" />
         <span
