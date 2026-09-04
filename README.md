@@ -499,7 +499,8 @@ Last verified local result: **13 tests passed** across 5 test files, with **61.9
 
 The target is WCAG 2.1 AA for the public site and core user workflows. The interface uses semantic headings, labels, accessible link and button names, keyboard-oriented controls, responsive layouts, and visible focus states where applicable.
 
-An automated axe or WAVE audit has not yet been completed for the deployed application. Accessibility verification remains part of the deployment checklist and should be completed before final submission.
+An automated axe or WAVE audit has been completed for the deployed application. Accessibility verification ss attached below-
+![Accessibility verification](public/axeDevTools.png)
 
 ## Lighthouse
 
