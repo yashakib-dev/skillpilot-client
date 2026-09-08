@@ -33,14 +33,14 @@ export default function FAQ() {
   };
 
   return (
-    <section className="bg-slate-950 py-24 sm:py-28" id="faq">
+    <section className="bg-[#EBEDE8] py-24 sm:py-28" id="faq">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mb-16 text-center">
-          <span className="mb-5 inline-flex items-center rounded-full border border-indigo-400/30 bg-indigo-500/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-indigo-300">
+          <span className="mb-5 inline-flex items-center rounded-full border border-[#004838]/20 bg-[#004838]/10 px-4 py-2 text-xs md:text-sm font-bold uppercase tracking-[0.18em] text-[#073127]">
             FAQ
           </span>
-          <h2 className="text-3xl font-bold tracking-tight text-slate-100 sm:text-4xl">Common Questions</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-400">
+          <h2 className="text-3xl font-bold tracking-tight text-[#073127] sm:text-4xl">Common Questions</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-[#333F3C]">
             Everything you need to know about how SkillPilot works and how it can help your career.
           </p>
         </div>
@@ -49,7 +49,7 @@ export default function FAQ() {
           {faqs.map((faq, idx) => (
             <div
               key={idx}
-              className={`rounded-2xl border border-white/10 bg-slate-900/80 ${openIdx === idx ? "border-indigo-400/30" : ""}`}
+              className={`rounded-2xl border border-[#073127]/10 bg-white transition-all shadow-[0_4px_20px_rgba(7,49,39,0.03)] ${openIdx === idx ? "border-[#004838]/40 shadow-[0_8px_25px_rgba(7,49,39,0.07)]" : ""}`}
             >
               <button
                 className="flex w-full items-center justify-between px-6 py-5 text-left focus:outline-none"
@@ -57,10 +57,10 @@ export default function FAQ() {
                 aria-label={faq.question}
                 aria-expanded={openIdx === idx}
               >
-                <span className="pr-4 font-semibold text-slate-100">
+                <span className="pr-4 font-bold text-[#073127]">
                   {faq.question}
                 </span>
-                <span className={`flex-shrink-0 transition-transform duration-300 ${openIdx === idx ? "rotate-180 text-indigo-400" : "text-slate-500"}`}>
+                <span className={`flex-shrink-0 transition-transform duration-300 ${openIdx === idx ? "rotate-180 text-[#004838]" : "text-[#333F3C]"}`}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M6 9l6 6 6-6" />
                   </svg>
@@ -74,7 +74,7 @@ export default function FAQ() {
                   opacity: openIdx === idx ? 1 : 0
                 }}
               >
-                <div className="mx-6 border-t border-white/10 px-6 pb-6 pt-2 leading-relaxed text-slate-400">
+                <div className="mx-6 border-t border-[#073127]/10 px-6 pb-6 pt-3 leading-relaxed text-[#333F3C]">
                   {faq.answer}
                 </div>
               </div>

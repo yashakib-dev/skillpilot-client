@@ -18,10 +18,10 @@ function DeleteModal({
 }) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={onCancel} />
-      <div className="relative w-full max-w-md rounded-2xl border border-slate-700 bg-slate-900 p-6 shadow-2xl">
+      <div className="absolute inset-0 bg-[#073127]/40 backdrop-blur-sm" onClick={onCancel} />
+      <div className="relative w-full max-w-md rounded-2xl border border-[#073127]/10 bg-white p-6 shadow-2xl">
         <div className="mb-5 flex items-center gap-4">
-          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-red-500/10 text-red-400">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-red-500/10 text-red-600">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
               <line x1="12" y1="9" x2="12" y2="13" />
@@ -29,25 +29,25 @@ function DeleteModal({
             </svg>
           </div>
           <div>
-            <h3 className="text-lg font-bold text-white">Delete Career Plan</h3>
-            <p className="text-sm text-slate-400">This action cannot be undone.</p>
+            <h3 className="text-lg font-bold text-[#073127]">Delete Career Plan</h3>
+            <p className="text-sm text-[#333F3C]/70">This action cannot be undone.</p>
           </div>
         </div>
-        <p className="mb-6 rounded-xl bg-slate-800/60 px-4 py-3 text-sm text-slate-300">
+        <p className="mb-6 rounded-xl bg-[#EBEDE8] px-4 py-3 text-sm text-[#333F3C]">
           All associated data will be permanently removed. Are you sure you want to proceed?
         </p>
         <div className="flex gap-3">
           <button
             onClick={onCancel}
             disabled={isDeleting}
-            className="flex-1 rounded-xl border border-slate-700 bg-slate-800 px-4 py-2.5 text-sm font-semibold text-slate-200 transition-colors hover:bg-slate-700 disabled:opacity-50"
+            className="flex-1 rounded-xl border border-[#073127]/10 bg-[#EBEDE8] px-4 py-2.5 text-sm font-semibold text-[#073127] transition-colors hover:bg-slate-200 disabled:opacity-50"
           >
             Cancel
           </button>
           <button
             onClick={onConfirm}
             disabled={isDeleting}
-            className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-red-500 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-red-600 disabled:opacity-70"
+            className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-red-600 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-red-700 disabled:opacity-70"
           >
             {isDeleting ? (
               <>
@@ -183,8 +183,8 @@ export default function CareerDetailPage() {
   if (isLoading) {
     return (
       <div className="space-y-6 max-w-4xl">
-        <div className="h-8 w-64 rounded bg-slate-800 animate-pulse" />
-        <div className="h-64 rounded-2xl bg-slate-800/50 animate-pulse border border-slate-700" />
+        <div className="h-8 w-64 rounded bg-[#EBEDE8] animate-pulse" />
+        <div className="h-64 rounded-2xl bg-white animate-pulse border border-[#073127]/10" />
       </div>
     );
   }
@@ -193,7 +193,6 @@ export default function CareerDetailPage() {
 
   return (
     <>
-  
       {showDeleteModal && (
         <DeleteModal
           onConfirm={handleDelete}
@@ -205,7 +204,7 @@ export default function CareerDetailPage() {
       {/* Back link */}
       <Link
         href="/my-careers"
-        className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors"
+        className="inline-flex items-center gap-2 text-sm text-[#333F3C]/70 hover:text-[#073127] transition-colors"
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
           <path d="M19 12H5M12 5l-7 7 7 7" />
@@ -219,21 +218,21 @@ export default function CareerDetailPage() {
           <div className="mb-3 flex items-center gap-3">
             <span className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold ${
               career.status === "Completed"
-                ? "bg-green-500/10 text-green-400 border border-green-500/20"
-                : "bg-indigo-500/10 text-indigo-400 border border-indigo-500/20"
+                ? "bg-[#004838]/10 text-[#004838] border border-[#004838]/20"
+                : "bg-[#004838]/10 text-[#004838] border border-[#004838]/20"
             }`}>
               {career.status}
             </span>
-            <span className="text-xs text-slate-500">
+            <span className="text-xs text-[#333F3C]/60">
               Created {new Date(career.createdAt).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
             </span>
           </div>
-          <h1 className="text-3xl font-bold tracking-tight text-white">{career.title}</h1>
-          <p className="mt-2 text-slate-400">{career.shortDescription}</p>
+          <h1 className="text-3xl font-bold tracking-tight text-[#073127]">{career.title}</h1>
+          <p className="mt-2 text-[#333F3C]/80">{career.shortDescription}</p>
         </div>
         <button
           onClick={() => setShowDeleteModal(true)}
-          className="inline-flex items-center gap-2 self-start rounded-full border border-red-500/30 bg-red-500/10 px-4 py-2 text-sm font-semibold text-red-400 transition-colors hover:bg-red-500/20"
+          className="inline-flex items-center gap-2 self-start rounded-full border border-red-500/30 bg-red-500/10 px-4 py-2 text-sm font-semibold text-red-600 transition-colors hover:bg-red-500/20"
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2" />
@@ -244,7 +243,7 @@ export default function CareerDetailPage() {
 
       {/* Optional image */}
       {career.imageUrl && (
-        <div className="overflow-hidden rounded-2xl border border-slate-800">
+        <div className="overflow-hidden rounded-2xl border border-[#073127]/10 bg-white shadow-sm">
           <Image
             src={career.imageUrl}
             alt={career.title}
@@ -257,11 +256,11 @@ export default function CareerDetailPage() {
       )}
 
       {/* Progress tracker */}
-      <div className="rounded-2xl border border-slate-800 bg-slate-900/50 p-6 shadow-xl">
-        <h2 className="mb-4 text-lg font-bold text-white">Progress Tracker</h2>
+      <div className="rounded-2xl border border-[#073127]/10 bg-white p-6 shadow-sm">
+        <h2 className="mb-4 text-lg font-bold text-[#073127]">Progress Tracker</h2>
         <div className="mb-3 flex items-center justify-between text-sm font-medium">
-          <span className="text-slate-400">Current Progress</span>
-          <span className="text-2xl font-bold text-indigo-400">{progress}%</span>
+          <span className="text-[#333F3C]/70">Current Progress</span>
+          <span className="text-2xl font-bold text-[#004838]">{progress}%</span>
         </div>
         <input
           type="range"
@@ -269,18 +268,18 @@ export default function CareerDetailPage() {
           max="100"
           value={progress}
           onChange={(e) => setProgress(Number(e.target.value))}
-          className="mb-4 w-full accent-indigo-500"
+          className="mb-4 w-full accent-[#004838]"
         />
-        <div className="mb-4 h-3 w-full overflow-hidden rounded-full bg-slate-800">
+        <div className="mb-4 h-3 w-full overflow-hidden rounded-full bg-[#EBEDE8]">
           <div
-            className="h-full rounded-full bg-gradient-to-r from-indigo-500 to-cyan-500 transition-all duration-500"
+            className="h-full rounded-full bg-gradient-to-r from-[#004838] to-[#073127] transition-all duration-500"
             style={{ width: `${progress}%` }}
           />
         </div>
         <button
           onClick={handleProgressSave}
           disabled={isSavingProgress || progress === career.progress}
-          className="rounded-full bg-indigo-600 px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-indigo-500 disabled:opacity-50"
+          className="rounded-full bg-[#004838] px-6 py-2 text-sm font-semibold text-[#E2FB6C] shadow transition-all hover:bg-[#073127] disabled:opacity-50"
         >
           {isSavingProgress ? "Saving..." : "Save Progress"}
         </button>
@@ -289,42 +288,42 @@ export default function CareerDetailPage() {
       {/* Details grid */}
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {/* Stats */}
-        <div className="rounded-2xl border border-slate-800 bg-slate-900/50 p-6 shadow-xl">
-          <h2 className="mb-4 text-lg font-bold text-white">Plan Details</h2>
+        <div className="rounded-2xl border border-[#073127]/10 bg-white p-6 shadow-sm">
+          <h2 className="mb-4 text-lg font-bold text-[#073127]">Plan Details</h2>
           <dl className="space-y-3 text-sm">
             <div className="flex items-center justify-between">
-              <dt className="text-slate-400">Target Duration</dt>
-              <dd className="font-semibold text-white">{career.priorityMonths ? `${career.priorityMonths} months` : "—"}</dd>
+              <dt className="text-[#333F3C]/70">Target Duration</dt>
+              <dd className="font-semibold text-[#073127]">{career.priorityMonths ? `${career.priorityMonths} months` : "—"}</dd>
             </div>
             <div className="flex items-center justify-between">
-              <dt className="text-slate-400">Available Time</dt>
-              <dd className="font-semibold text-white">{career.availableTime ? `${career.availableTime} hrs/week` : "—"}</dd>
+              <dt className="text-[#333F3C]/70">Available Time</dt>
+              <dd className="font-semibold text-[#073127]">{career.availableTime ? `${career.availableTime} hrs/week` : "—"}</dd>
             </div>
             <div className="flex items-center justify-between">
-              <dt className="text-slate-400">Last Updated</dt>
-              <dd className="font-semibold text-white">{new Date(career.updatedAt).toLocaleDateString()}</dd>
+              <dt className="text-[#333F3C]/70">Last Updated</dt>
+              <dd className="font-semibold text-[#073127]">{new Date(career.updatedAt).toLocaleDateString()}</dd>
             </div>
           </dl>
         </div>
 
         {/* Technologies & Experience */}
-        <div className="rounded-2xl border border-slate-800 bg-slate-900/50 p-6 shadow-xl space-y-5">
+        <div className="rounded-2xl border border-[#073127]/10 bg-white p-6 shadow-sm space-y-5">
           {career.experience?.length > 0 && (
             <div>
-              <h3 className="mb-2 text-sm font-semibold text-slate-300">Experience Levels</h3>
+              <h3 className="mb-2 text-sm font-semibold text-[#073127]">Experience Levels</h3>
               <div className="flex flex-wrap gap-2">
                 {career.experience.map((e) => (
-                  <span key={e} className="rounded-full bg-slate-800 px-3 py-1 text-xs font-medium text-slate-300 border border-slate-700">{e}</span>
+                  <span key={e} className="rounded-full bg-[#EBEDE8] px-3 py-1 text-xs font-medium text-[#073127] border border-[#073127]/10">{e}</span>
                 ))}
               </div>
             </div>
           )}
           {career.technologies?.length > 0 && (
             <div>
-              <h3 className="mb-2 text-sm font-semibold text-slate-300">Technologies</h3>
+              <h3 className="mb-2 text-sm font-semibold text-[#073127]">Technologies</h3>
               <div className="flex flex-wrap gap-2">
                 {career.technologies.map((t) => (
-                  <span key={t} className="rounded-full bg-violet-500/10 px-3 py-1 text-xs font-medium text-violet-300 border border-violet-500/20">{t}</span>
+                  <span key={t} className="rounded-full bg-[#004838]/10 px-3 py-1 text-xs font-medium text-[#004838] border border-[#004838]/20">{t}</span>
                 ))}
               </div>
             </div>
@@ -334,23 +333,23 @@ export default function CareerDetailPage() {
 
       {/* Full description */}
       {career.fullDescription && (
-        <div className="rounded-2xl border border-slate-800 bg-slate-900/50 p-6 shadow-xl">
-          <h2 className="mb-3 text-lg font-bold text-white">Description</h2>
-          <p className="whitespace-pre-wrap text-sm leading-relaxed text-slate-400">{career.fullDescription}</p>
+        <div className="rounded-2xl border border-[#073127]/10 bg-white p-6 shadow-sm">
+          <h2 className="mb-3 text-lg font-bold text-[#073127]">Description</h2>
+          <p className="whitespace-pre-wrap text-sm leading-relaxed text-[#333F3C]/80">{career.fullDescription}</p>
         </div>
       )}
 
-      {/* AI Roadmap placeholder */}
-      <div className="rounded-2xl border border-dashed border-indigo-500/30 bg-indigo-500/5 p-6 shadow-xl">
+      {/* AI Roadmap container */}
+      <div className="rounded-2xl border border-dashed border-[#004838]/30 bg-[#004838]/5 p-6 shadow-sm">
         <div className="mb-4 flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500/10 text-indigo-400">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#004838]/10 text-[#004838]">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
             </svg>
           </div>
           <div>
-            <h2 className="text-lg font-bold text-white">AI Roadmap</h2>
-            <p className="text-xs text-slate-400">AI generation coming soon</p>
+            <h2 className="text-lg font-bold text-[#073127]">AI Roadmap</h2>
+            <p className="text-xs text-[#333F3C]/70">Custom tailored learning path</p>
           </div>
         </div>
         {career.roadmap ? (
@@ -369,16 +368,16 @@ export default function CareerDetailPage() {
             }
             
             return (
-              <div className="whitespace-pre-wrap rounded-xl bg-slate-900 p-4 text-sm text-slate-300">
+              <div className="whitespace-pre-wrap rounded-xl bg-white p-4 text-sm text-[#333F3C] border border-[#073127]/10">
                 {String(career.roadmap)}
               </div>
             );
           })()
         ) : (
-          <div className="flex flex-col items-center justify-center py-8 text-center text-slate-500">
+          <div className="flex flex-col items-center justify-center py-8 text-center text-[#333F3C]/70">
             <p className="text-sm">No roadmap generated yet.</p>
             <button
-              className="mt-4 inline-flex items-center justify-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-5 py-2 text-sm font-semibold text-indigo-400 transition-colors hover:bg-indigo-500/20 disabled:opacity-50"
+              className="mt-4 inline-flex items-center justify-center gap-2 rounded-full border border-[#004838]/30 bg-[#004838] px-6 py-2 text-sm font-semibold text-[#E2FB6C] shadow transition-colors hover:bg-[#073127] disabled:opacity-50"
               onClick={handleGenerateRoadmap}
               disabled={isGenerating}
             >

@@ -38,7 +38,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${geistMono.variable} scroll-smooth`}
     >
-      <body className="min-h-screen flex flex-col bg-slate-950 text-slate-100 antialiased">
+      <body className="min-h-screen flex flex-col bg-[#EBEDE8] text-[#333F3C] font-sans antialiased selection:bg-[#E2FB6C] selection:text-[#073127]">
         <Navbar />
         <main className="flex-grow">
           {children}

@@ -94,63 +94,63 @@ export default function RegisterPage() {
   return (
     <div>
       <div className="mb-8 text-center">
-        <h1 className="mb-2 text-2xl font-bold text-slate-100">Create an Account</h1>
-        <p className="text-sm text-slate-400">Join SkillPilot and start building your roadmap</p>
+        <h1 className="mb-2 text-2xl font-extrabold text-[#073127]">Create an Account</h1>
+        <p className="text-sm text-[#333F3C]">Join SkillPilot and start building your roadmap</p>
       </div>
 
       {errors.general && (
-        <div className="mb-4 p-3 rounded bg-red-500/10 border border-red-500/50 text-red-400 text-sm">
+        <div className="mb-4 p-3 rounded-xl bg-red-50 border border-red-200 text-red-600 text-sm font-medium">
           {errors.general}
         </div>
       )}
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="mb-1 block text-sm font-medium text-slate-300">Full Name</label>
+          <label className="mb-1 block text-sm font-bold text-[#073127]">Full Name</label>
           <input
             type="text"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className={`w-full rounded-lg border bg-slate-800/80 px-4 py-2.5 text-slate-100 transition-colors focus:border-indigo-500 focus:outline-none ${errors.name ? 'border-red-500' : 'border-white/10'}`}
+            className={`w-full rounded-xl border bg-white px-4 py-2.5 text-[#073127] transition-colors focus:border-[#004838] focus:outline-none ${errors.name ? 'border-red-500' : 'border-[#073127]/20'}`}
             placeholder="John Doe"
             disabled={isLoading}
           />
-          {errors.name && <p className="mt-1 text-xs text-red-400">{errors.name}</p>}
+          {errors.name && <p className="mt-1 text-xs text-red-600 font-medium">{errors.name}</p>}
         </div>
 
         <div>
-          <label className="mb-1 block text-sm font-medium text-slate-300">Email Address</label>
+          <label className="mb-1 block text-sm font-bold text-[#073127]">Email Address</label>
           <input
             type="email"
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            className={`w-full rounded-lg border bg-slate-800/80 px-4 py-2.5 text-slate-100 transition-colors focus:border-indigo-500 focus:outline-none ${errors.email ? 'border-red-500' : 'border-white/10'}`}
+            className={`w-full rounded-xl border bg-white px-4 py-2.5 text-[#073127] transition-colors focus:border-[#004838] focus:outline-none ${errors.email ? 'border-red-500' : 'border-[#073127]/20'}`}
             placeholder="you@example.com"
             disabled={isLoading}
           />
-          {errors.email && <p className="mt-1 text-xs text-red-400">{errors.email}</p>}
+          {errors.email && <p className="mt-1 text-xs text-red-600 font-medium">{errors.email}</p>}
         </div>
 
         <div>
-          <label className="mb-1 block text-sm font-medium text-slate-300">Password</label>
+          <label className="mb-1 block text-sm font-bold text-[#073127]">Password</label>
           <input
             type="password"
             value={formData.password}
             onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-            className={`w-full rounded-lg border bg-slate-800/80 px-4 py-2.5 text-slate-100 transition-colors focus:border-indigo-500 focus:outline-none ${errors.password ? 'border-red-500' : 'border-white/10'}`}
+            className={`w-full rounded-xl border bg-white px-4 py-2.5 text-[#073127] transition-colors focus:border-[#004838] focus:outline-none ${errors.password ? 'border-red-500' : 'border-[#073127]/20'}`}
             placeholder="••••••••"
             disabled={isLoading}
           />
-          {errors.password && <p className="mt-1 text-xs text-red-400">{errors.password}</p>}
+          {errors.password && <p className="mt-1 text-xs text-red-600 font-medium">{errors.password}</p>}
         </div>
 
         <div>
-          <label className="mb-1 block text-sm font-medium text-slate-300">Profile Image URL (Optional)</label>
+          <label className="mb-1 block text-sm font-bold text-[#073127]">Profile Image URL (Optional)</label>
           <input
             type="url"
             value={formData.imageUrl}
             onChange={(e) => setFormData({ ...formData, imageUrl: e.target.value })}
-            className="w-full rounded-lg border border-white/10 bg-slate-800/80 px-4 py-2.5 text-slate-100 transition-colors focus:border-indigo-500 focus:outline-none"
+            className="w-full rounded-xl border border-[#073127]/20 bg-white px-4 py-2.5 text-[#073127] transition-colors focus:border-[#004838] focus:outline-none"
             placeholder="https://example.com/avatar.jpg"
             disabled={isLoading}
           />
@@ -159,10 +159,10 @@ export default function RegisterPage() {
         <button
           type="submit"
           disabled={isLoading}
-          className="mt-4 flex w-full items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 to-violet-500 px-4 py-3 font-semibold text-white transition hover:-translate-y-0.5"
+          className="mt-4 flex w-full items-center justify-center rounded-full bg-[#004838] px-4 py-3 font-bold text-[#E2FB6C] shadow-[0_4px_16px_rgba(0,72,56,0.3)] transition hover:-translate-y-0.5 hover:bg-[#073127]"
         >
           {isLoading ? (
-            <svg className="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24">
+            <svg className="animate-spin h-5 w-5 text-[#E2FB6C]" viewBox="0 0 24 24">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
             </svg>
@@ -170,8 +170,8 @@ export default function RegisterPage() {
         </button>
       </form>
 
-      <div className="my-6 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-white/10 after:mt-0.5 after:flex-1 after:border-t after:border-white/10">
-        <p className="mx-4 mb-0 text-center text-sm font-medium text-slate-500">
+      <div className="my-6 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-[#073127]/10 after:mt-0.5 after:flex-1 after:border-t after:border-[#073127]/10">
+        <p className="mx-4 mb-0 text-center text-xs font-bold uppercase tracking-wider text-[#333F3C]/60">
           OR
         </p>
       </div>
@@ -180,7 +180,7 @@ export default function RegisterPage() {
         <button 
           type="button"
           onClick={handleGoogleSignIn}
-          className="flex w-full items-center justify-center rounded-full border border-white/10 bg-slate-800/70 py-3 font-semibold text-slate-200 transition hover:border-indigo-400/40 disabled:opacity-50"
+          className="flex w-full items-center justify-center rounded-full border border-[#073127]/20 bg-white py-3 font-semibold text-[#073127] transition hover:bg-[#EBEDE8] disabled:opacity-50"
           disabled={isLoading}
         >
           <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
@@ -193,9 +193,9 @@ export default function RegisterPage() {
         </button>
       </div>
 
-      <p className="mt-8 text-center text-sm text-slate-400">
+      <p className="mt-8 text-center text-sm text-[#333F3C]">
         Already have an account?{" "}
-        <Link href="/auth/login" className="font-medium text-indigo-400 hover:text-indigo-300">
+        <Link href="/auth/login" className="font-bold text-[#004838] hover:text-[#073127]">
           Sign in
         </Link>
       </p>

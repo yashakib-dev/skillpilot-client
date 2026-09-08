@@ -63,12 +63,12 @@ function StatItem({ stat, index }: { stat: typeof stats[0], index: number }) {
   const { count, ref } = useCounter(stat.value, 2000 + (index * 200));
 
   return (
-    <div ref={ref} className="group relative overflow-hidden rounded-3xl border border-white/10 bg-slate-900/80 p-6 text-center shadow-[0_20px_60px_rgba(15,23,42,0.4)]">
-      <div className="absolute inset-0 bg-gradient-to-b from-indigo-500/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-      <div className="mb-2 bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-3xl font-bold text-transparent sm:text-4xl">
+    <div ref={ref} className="group relative overflow-hidden rounded-3xl border border-[#073127]/10 bg-white p-6 text-center shadow-[0_8px_30px_rgba(7,49,39,0.05)] transition-all duration-300 hover:border-[#004838]/30 hover:shadow-[0_12px_40px_rgba(7,49,39,0.1)]">
+      <div className="absolute inset-0 bg-gradient-to-b from-[#004838]/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+      <div className="mb-2 text-3xl font-extrabold text-[#004838] sm:text-4xl">
         {count}{stat.suffix}
       </div>
-      <div className="text-sm font-medium uppercase tracking-[0.2em] text-slate-400">
+      <div className="text-xs font-bold uppercase tracking-[0.18em] text-[#333F3C]">
         {stat.label}
       </div>
     </div>
@@ -77,9 +77,9 @@ function StatItem({ stat, index }: { stat: typeof stats[0], index: number }) {
 
 export default function Statistics() {
   return (
-    <section className="relative bg-slate-900/70 py-20">
-      <div className="absolute left-0 top-0 h-[1px] w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-      <div className="absolute bottom-0 left-0 h-[1px] w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+    <section className="relative bg-[#EBEDE8] py-20">
+      <div className="absolute left-0 top-0 h-[1px] w-full bg-gradient-to-r from-transparent via-[#073127]/10 to-transparent" />
+      <div className="absolute bottom-0 left-0 h-[1px] w-full bg-gradient-to-r from-transparent via-[#073127]/10 to-transparent" />
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8">

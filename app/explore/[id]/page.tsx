@@ -158,14 +158,14 @@ export default async function CareerDetailPage({ params }: { params: Promise<{ i
   const relatedCareers = getRelatedCareers(career, careers);
 
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-100">
+    <main className="min-h-screen bg-[#EBEDE8] text-[#333F3C]">
       <section className="px-4 py-8 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-6xl flex-col gap-8">
-          <header className="mt-20 overflow-hidden rounded-[28px] border border-white/10 bg-slate-900/80 shadow-[0_20px_60px_rgba(15,23,42,0.4)]">
+          <header className="mt-20 overflow-hidden rounded-[28px] border border-[#073127]/10 bg-white shadow-[0_20px_50px_rgba(7,49,39,0.08)]">
             <div className="flex flex-col gap-6 p-6 sm:p-8 lg:flex-row lg:items-center lg:justify-between lg:p-10">
               <div className="max-w-3xl">
                 <div className="mb-5 flex flex-wrap items-center gap-3">
-                  <span className="inline-flex items-center rounded-full border border-indigo-400/30 bg-indigo-500/10 px-3 py-1 text-sm font-semibold text-indigo-300">
+                  <span className="inline-flex items-center rounded-full border border-[#004838]/20 bg-[#004838]/10 px-3 py-1 text-sm font-semibold text-[#004838]">
                     {career.category}
                   </span>
                   <span className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm font-semibold ${diff.color}`}>
@@ -175,22 +175,22 @@ export default async function CareerDetailPage({ params }: { params: Promise<{ i
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-indigo-500/15 text-3xl sm:h-16 sm:w-16">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#004838]/10 text-3xl sm:h-16 sm:w-16">
                     {career.icon ?? "💼"}
                   </div>
                   <div>
-                    <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl">
+                    <h1 className="text-3xl font-semibold tracking-tight text-[#073127] sm:text-4xl lg:text-5xl">
                       {career.title}
                     </h1>
-                    <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-400 sm:text-base">
+                    <p className="mt-3 max-w-2xl text-sm leading-6 text-[#333F3C]/80 sm:text-base">
                       {career.description}
                     </p>
-                    <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-slate-400">
-                      <span className="rounded-full border border-white/10 bg-slate-950/70 px-3 py-1.5">
-                        {career.timeToLearn}
+                    <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-[#333F3C]">
+                      <span className="rounded-full border border-[#073127]/10 bg-[#EBEDE8] px-3 py-1.5 font-medium">
+                        ⏱️ {career.timeToLearn}
                       </span>
-                      <span className="rounded-full border border-white/10 bg-slate-950/70 px-3 py-1.5">
-                        {career.avgSalary}
+                      <span className="rounded-full border border-[#073127]/10 bg-[#EBEDE8] px-3 py-1.5 font-medium">
+                        💰 {career.avgSalary}
                       </span>
                     </div>
                   </div>
@@ -198,7 +198,7 @@ export default async function CareerDetailPage({ params }: { params: Promise<{ i
               </div>
 
               <div className="flex w-full flex-col gap-4 lg:w-[320px] lg:shrink-0">
-                <div className="relative overflow-hidden rounded-[22px] border border-white/10 bg-slate-950/70">
+                <div className="relative overflow-hidden rounded-[22px] border border-[#073127]/10 bg-[#EBEDE8]">
                   <Image
                     src={career.coverImage}
                     alt={career.title}
@@ -207,12 +207,12 @@ export default async function CareerDetailPage({ params }: { params: Promise<{ i
                     sizes="(max-width: 1024px) 100vw, 320px"
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#073127]/60 via-transparent to-transparent" />
                 </div>
 
                 <Link
                   href="/dashboard"
-                  className="inline-flex items-center justify-center rounded-full bg-indigo-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-indigo-500"
+                  className="inline-flex items-center justify-center rounded-full bg-[#004838] px-5 py-3 text-sm font-semibold text-[#E2FB6C] shadow-md transition hover:bg-[#073127]"
                 >
                   Start Roadmap
                 </Link>
@@ -221,38 +221,38 @@ export default async function CareerDetailPage({ params }: { params: Promise<{ i
           </header>
 
           <section className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-            <div className="rounded-[24px] border border-[rgba(255,255,255,0.08)] bg-[#111827] p-6 sm:p-8">
-              <h2 className="text-xl font-semibold">Overview</h2>
-              <p className="mt-4 leading-relaxed text-slate-400">{career.description}</p>
+            <div className="rounded-[24px] border border-[#073127]/10 bg-white p-6 shadow-sm sm:p-8">
+              <h2 className="text-xl font-semibold text-[#073127]">Overview</h2>
+              <p className="mt-4 leading-relaxed text-[#333F3C]/80">{career.description}</p>
 
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                <div className="rounded-2xl border border-white/10 bg-slate-950/80 p-4">
-                  <p className="text-sm font-semibold text-indigo-300">Duration</p>
-                  <p className="mt-1 text-slate-400">{career.timeToLearn}</p>
+                <div className="rounded-2xl border border-[#073127]/10 bg-[#EBEDE8]/60 p-4">
+                  <p className="text-sm font-semibold text-[#004838]">Duration</p>
+                  <p className="mt-1 font-medium text-[#073127]">{career.timeToLearn}</p>
                 </div>
-                <div className="rounded-2xl border border-white/10 bg-slate-950/80 p-4">
-                  <p className="text-sm font-semibold text-indigo-300">Expected Pay</p>
-                  <p className="mt-1 text-slate-400">{career.avgSalary}</p>
+                <div className="rounded-2xl border border-[#073127]/10 bg-[#EBEDE8]/60 p-4">
+                  <p className="text-sm font-semibold text-[#004838]">Expected Pay</p>
+                  <p className="mt-1 font-medium text-[#073127]">{career.avgSalary}</p>
                 </div>
-                <div className="rounded-2xl border border-white/10 bg-slate-950/80 p-4">
-                  <p className="text-sm font-semibold text-indigo-300">Focus Area</p>
-                  <p className="mt-1 text-slate-400">{career.category}</p>
+                <div className="rounded-2xl border border-[#073127]/10 bg-[#EBEDE8]/60 p-4">
+                  <p className="text-sm font-semibold text-[#004838]">Focus Area</p>
+                  <p className="mt-1 font-medium text-[#073127]">{career.category}</p>
                 </div>
-                <div className="rounded-2xl border border-white/10 bg-slate-950/80 p-4">
-                  <p className="text-sm font-semibold text-indigo-300">Best For</p>
-                  <p className="mt-1 text-slate-400">Builders who enjoy practical problem solving</p>
+                <div className="rounded-2xl border border-[#073127]/10 bg-[#EBEDE8]/60 p-4">
+                  <p className="text-sm font-semibold text-[#004838]">Best For</p>
+                  <p className="mt-1 text-sm text-[#333F3C]/80">Builders who enjoy practical problem solving</p>
                 </div>
               </div>
             </div>
 
-            <div className="rounded-[24px] border border-white/10 bg-slate-900/80 p-6 sm:p-8">
-              <h2 className="text-xl font-semibold">Required Skills</h2>
+            <div className="rounded-[24px] border border-[#073127]/10 bg-white p-6 shadow-sm sm:p-8">
+              <h2 className="text-xl font-semibold text-[#073127]">Required Skills</h2>
               <div className="mt-5 space-y-3">
                 {skillProfile.map(({ skill, proficiency }) => (
-                  <div key={skill} className="rounded-2xl border border-white/10 bg-slate-950/80 p-4">
+                  <div key={skill} className="rounded-2xl border border-[#073127]/10 bg-[#EBEDE8]/60 p-4">
                     <div className="flex items-center justify-between gap-3">
-                      <span className="font-medium">{skill}</span>
-                      <span className="text-sm text-indigo-300">{proficiency}</span>
+                      <span className="font-semibold text-[#073127]">{skill}</span>
+                      <span className="text-xs font-semibold text-[#004838] bg-[#004838]/10 px-2.5 py-1 rounded-full">{proficiency}</span>
                     </div>
                   </div>
                 ))}
@@ -260,41 +260,41 @@ export default async function CareerDetailPage({ params }: { params: Promise<{ i
             </div>
           </section>
 
-          <section className="rounded-[24px] border border-[rgba(255,255,255,0.08)] bg-[#111827] p-6 sm:p-8">
-            <h2 className="text-xl font-semibold">Learning Path</h2>
+          <section className="rounded-[24px] border border-[#073127]/10 bg-white p-6 shadow-sm sm:p-8">
+            <h2 className="text-xl font-semibold text-[#073127]">Learning Path</h2>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
               {learningPhases.map((phase, index) => (
-                <div key={phase.title} className="rounded-2xl border border-white/10 bg-slate-950/80 p-5">
-                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-indigo-500/15 text-sm font-semibold text-indigo-300">
+                <div key={phase.title} className="rounded-2xl border border-[#073127]/10 bg-[#EBEDE8]/60 p-5">
+                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-[#004838]/10 text-sm font-bold text-[#004838]">
                     0{index + 1}
                   </div>
-                  <h3 className="font-semibold">{phase.title}</h3>
-                  <p className="mt-2 text-sm text-slate-400">{phase.description}</p>
+                  <h3 className="font-semibold text-[#073127]">{phase.title}</h3>
+                  <p className="mt-2 text-sm text-[#333F3C]/80">{phase.description}</p>
                 </div>
               ))}
             </div>
           </section>
 
           <section className="grid gap-6 xl:grid-cols-[1fr_0.9fr]">
-            <div className="rounded-[24px] border border-white/10 bg-slate-900/80 p-6 sm:p-8">
-              <h2 className="text-xl font-semibold">Projects</h2>
+            <div className="rounded-[24px] border border-[#073127]/10 bg-white p-6 shadow-sm sm:p-8">
+              <h2 className="text-xl font-semibold text-[#073127]">Projects</h2>
               <div className="mt-5 space-y-3">
                 {projects.map((project) => (
-                  <div key={project} className="rounded-2xl border border-white/10 bg-slate-950/80 p-4 text-slate-400">
-                    {project}
+                  <div key={project} className="rounded-2xl border border-[#073127]/10 bg-[#EBEDE8]/60 p-4 text-[#333F3C]">
+                    💡 {project}
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="rounded-[24px] border border-white/10 bg-slate-900/80 p-6 sm:p-8">
-              <h2 className="text-xl font-semibold">Resources</h2>
+            <div className="rounded-[24px] border border-[#073127]/10 bg-white p-6 shadow-sm sm:p-8">
+              <h2 className="text-xl font-semibold text-[#073127]">Resources</h2>
               <div className="mt-5 space-y-3">
                 {resources.map((resource) => (
-                  <div key={resource.title} className="rounded-2xl border border-white/10 bg-slate-950/80 p-4">
+                  <div key={resource.title} className="rounded-2xl border border-[#073127]/10 bg-[#EBEDE8]/60 p-4">
                     <div className="flex items-center justify-between gap-3">
-                      <span className="font-medium">{resource.title}</span>
-                      <span className="rounded-full bg-indigo-500/10 px-2.5 py-1 text-xs font-semibold text-indigo-300">
+                      <span className="font-semibold text-[#073127]">{resource.title}</span>
+                      <span className="rounded-full bg-[#004838]/10 px-2.5 py-1 text-xs font-semibold text-[#004838]">
                         {resource.type}
                       </span>
                     </div>
@@ -304,31 +304,31 @@ export default async function CareerDetailPage({ params }: { params: Promise<{ i
             </div>
           </section>
 
-          <section className="rounded-[24px] border border-white/10 bg-slate-900/80 p-6 sm:p-8">
-            <h2 className="text-xl font-semibold">Related Careers</h2>
+          <section className="rounded-[24px] border border-[#073127]/10 bg-white p-6 shadow-sm sm:p-8">
+            <h2 className="text-xl font-semibold text-[#073127]">Related Careers</h2>
             <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
               {relatedCareers.map((relatedCareer) => (
                 <Link
                   key={relatedCareer.id}
-                  href={`/careers/${relatedCareer.id}`}
-                  className="rounded-2xl border border-white/10 bg-slate-950/80 p-4 transition hover:border-indigo-400/40 hover:bg-slate-900"
+                  href={`/explore/${relatedCareer.id}`}
+                  className="rounded-2xl border border-[#073127]/10 bg-[#EBEDE8]/60 p-4 transition hover:border-[#004838]/30 hover:bg-white hover:shadow-sm"
                 >
-                  <p className="text-sm font-semibold text-indigo-300">{relatedCareer.category}</p>
-                  <h3 className="mt-2 font-semibold">{relatedCareer.title}</h3>
-                  <p className="mt-2 text-sm text-slate-400">{relatedCareer.timeToLearn}</p>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-[#004838]">{relatedCareer.category}</p>
+                  <h3 className="mt-2 font-semibold text-[#073127]">{relatedCareer.title}</h3>
+                  <p className="mt-2 text-sm text-[#333F3C]/70">{relatedCareer.timeToLearn}</p>
                 </Link>
               ))}
             </div>
           </section>
 
-          <section className="rounded-[24px] border border-indigo-400/20 bg-gradient-to-r from-indigo-600/20 to-purple-600/20 p-6 text-center sm:p-8">
-            <h2 className="text-2xl font-semibold">Ready to turn this path into a roadmap?</h2>
-            <p className="mx-auto mt-3 max-w-2xl text-slate-300">
+          <section className="rounded-[24px] border border-[#004838]/20 bg-[#073127] p-8 text-center sm:p-10 shadow-lg">
+            <h2 className="text-2xl font-bold text-white sm:text-3xl">Ready to turn this path into a roadmap?</h2>
+            <p className="mx-auto mt-3 max-w-2xl text-[#EBEDE8]/80">
               Build a personalized learning plan and track your progress from day one.
             </p>
             <Link
               href="/dashboard"
-              className="mt-6 inline-flex items-center justify-center rounded-full bg-white px-5 py-3 font-semibold text-slate-900 transition hover:bg-slate-100"
+              className="mt-6 inline-flex items-center justify-center rounded-full bg-[#E2FB6C] px-6 py-3.5 font-bold text-[#073127] transition hover:bg-[#d4f845] shadow-md"
             >
               Start Roadmap
             </Link>

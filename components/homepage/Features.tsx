@@ -47,14 +47,14 @@ const features = [
 
 export default function Features() {
   return (
-    <section className="relative bg-slate-900/70 py-24 sm:py-28" id="features">
+    <section className="relative bg-[#EBEDE8] py-24 sm:py-28" id="features">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mb-16 text-center">
-          <span className="mb-5 inline-flex items-center rounded-full border border-indigo-400/30 bg-indigo-500/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-indigo-300">
+          <span className="mb-5 inline-flex items-center rounded-full border border-[#004838]/20 bg-[#004838]/10 px-4 py-2 text-xs md:text-sm font-bold uppercase tracking-[0.18em] text-[#073127]">
             Core Platform
           </span>
-          <h2 className="text-3xl font-bold tracking-tight text-slate-100 sm:text-4xl">Everything you need to advance</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-400">
+          <h2 className="text-3xl font-bold tracking-tight text-[#073127] sm:text-4xl">Everything you need to advance</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-[#333F3C]">
             SkillPilot combines advanced AI with proven career development frameworks to provide a complete toolkit for your professional growth.
           </p>
         </div>
@@ -63,17 +63,16 @@ export default function Features() {
           {features.map((feature, idx) => (
             <div
               key={idx}
-              className="group flex h-full flex-col rounded-3xl border border-white/10 bg-slate-900/80 p-6 shadow-[0_20px_60px_rgba(15,23,42,0.4)] transition-transform duration-300 hover:-translate-y-1 hover:border-indigo-400/40"
+              className="group flex h-full flex-col rounded-3xl border border-[#073127]/10 bg-white p-6 shadow-[0_8px_30px_rgba(7,49,39,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-[#004838]/30 hover:shadow-[0_12px_40px_rgba(7,49,39,0.1)]"
               style={{ animationDelay: `${idx * 150}ms` }}
             >
-              <div className={`mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${feature.color} text-white shadow-lg transition-transform duration-300 group-hover:scale-110`}>
-
+              <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-[#004838] text-[#E2FB6C] shadow-sm border border-[#E2FB6C]/20 transition-transform duration-300 group-hover:scale-110">
                 {feature.icon}
               </div>
-              <h3 className="mb-3 text-xl font-bold text-slate-100 transition-colors group-hover:text-indigo-400">
+              <h3 className="mb-3 text-xl font-bold text-[#073127] transition-colors group-hover:text-[#004838]">
                 {feature.title}
               </h3>
-              <p className="flex-grow leading-relaxed text-slate-400">
+              <p className="flex-grow leading-relaxed text-[#333F3C]">
                 {feature.description}
               </p>
             </div>

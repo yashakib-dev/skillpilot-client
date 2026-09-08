@@ -1,20 +1,38 @@
+@import url('https://api.fontshare.com/v2/css?f[]=aspekta@400,500,550,600,700&display=swap');
 @import "tailwindcss";
 
+@theme {
+  --font-sans: 'Aspekta', var(--font-inter), system-ui, sans-serif;
+  --color-brand-primary: #004838;
+  --color-brand-dark: #073127;
+  --color-brand-accent: #E2FB6C;
+  --color-brand-charcoal: #333F3C;
+  --color-brand-bg: #EBEDE8;
+  --color-brand-card: #FFFFFF;
+  --color-brand-border: #D5DAD2;
+}
+
 :root {
-  color-scheme: dark;
+  color-scheme: light;
+  --bg-main: #EBEDE8;
+  --text-main: #333F3C;
+  --text-heading: #073127;
+  --primary-green: #004838;
+  --accent-lime: #E2FB6C;
 }
 
 html {
   scroll-behavior: smooth;
+  font-family: 'Aspekta', var(--font-inter), system-ui, sans-serif;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
   overflow-x: hidden;
-  background-color: #020617;
-  color: #f8fafc;
-  font-family: Arial, sans-serif;
+  background-color: #EBEDE8;
+  color: #333F3C;
+  font-family: 'Aspekta', var(--font-inter), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

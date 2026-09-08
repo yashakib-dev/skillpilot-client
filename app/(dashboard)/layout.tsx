@@ -13,7 +13,7 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex min-h-screen bg-slate-900 text-slate-200 pt-[72px]">
+    <div className="flex min-h-screen bg-[#EBEDE8] text-[#333F3C] pt-[72px]">
       <Sidebar />
       <main className="flex-1 overflow-y-auto">
         {/* We add a max width wrapper for the main content */}

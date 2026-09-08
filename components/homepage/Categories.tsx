@@ -74,19 +74,19 @@ const categories = [
 
 export default function Categories() {
   return (
-    <section className="bg-slate-950 py-24 sm:py-28" id="categories">
+    <section className="bg-[#EBEDE8] py-24 sm:py-28" id="categories">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <span className="mb-5 inline-flex items-center rounded-full border border-indigo-400/30 bg-indigo-500/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-indigo-300">
+            <span className="mb-5 inline-flex items-center rounded-full border border-[#004838]/20 bg-[#004838]/10 px-4 py-2 text-xs md:text-sm font-bold uppercase tracking-[0.18em] text-[#073127]">
               Explore
             </span>
-            <h2 className="text-3xl font-bold tracking-tight text-slate-100 sm:text-4xl">Discover Career Paths</h2>
-            <p className="mt-4 max-w-2xl text-lg text-slate-400">
+            <h2 className="text-3xl font-bold tracking-tight text-[#073127] sm:text-4xl">Discover Career Paths</h2>
+            <p className="mt-4 max-w-2xl text-lg text-[#333F3C]">
               Browse popular industries and find the perfect role that matches your skills and interests.
             </p>
           </div>
-          <Link href="/explore" className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-slate-700 bg-transparent px-5 py-3 text-sm font-semibold text-slate-200 transition hover:border-indigo-400 hover:bg-indigo-500/10 hover:text-white">
+          <Link href="/explore" className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-[#073127]/20 bg-white/80 px-5 py-3 text-sm font-semibold text-[#073127] transition hover:border-[#004838] hover:bg-[#004838]/10">
             View All Careers
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M5 12h14M12 5l7 7-7 7" />
@@ -99,18 +99,18 @@ export default function Categories() {
             <Link
               href={`/explore?category=${encodeURIComponent(cat.title)}`}
               key={idx}
-              className="group flex items-center gap-5 rounded-3xl border border-white/10 bg-slate-900/80 p-6 shadow-[0_20px_60px_rgba(15,23,42,0.4)] transition-all duration-300 hover:-translate-y-1 hover:border-indigo-400/40"
+              className="group flex items-center gap-5 rounded-3xl border border-[#073127]/10 bg-white p-6 shadow-[0_8px_30px_rgba(7,49,39,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-[#004838]/30 hover:shadow-[0_12px_40px_rgba(7,49,39,0.1)]"
             >
-              <div className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${cat.color} text-white shadow-lg transition-transform duration-300 group-hover:scale-110`}>
+              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-[#004838] text-[#E2FB6C] shadow-sm border border-[#E2FB6C]/30 transition-transform duration-300 group-hover:scale-110">
                 {cat.icon}
               </div>
               <div>
-                <h3 className="text-lg font-bold text-slate-100 transition-colors group-hover:text-indigo-300">
+                <h3 className="text-lg font-bold text-[#073127] transition-colors group-hover:text-[#004838]">
                   {cat.title}
                 </h3>
-                <p className="mt-1 text-sm text-slate-400">{cat.count}</p>
+                <p className="mt-1 text-sm text-[#333F3C] font-medium">{cat.count}</p>
               </div>
-              <div className="ml-auto -translate-x-2 text-indigo-400 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100">
+              <div className="ml-auto -translate-x-2 text-[#004838] opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <path d="M9 18l6-6-6-6" />
                 </svg>

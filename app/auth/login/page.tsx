@@ -126,53 +126,53 @@ export default function LoginPage() {
   return (
     <div>
       <div className="mb-8 text-center">
-        <h1 className="mb-2 text-2xl font-bold text-slate-100">Welcome Back</h1>
-        <p className="text-sm text-slate-400">Sign in to access your roadmaps</p>
+        <h1 className="mb-2 text-2xl font-extrabold text-[#073127]">Welcome Back</h1>
+        <p className="text-sm text-[#333F3C]">Sign in to access your roadmaps</p>
       </div>
 
       {errors.general && (
-        <div className="mb-4 p-3 rounded bg-red-500/10 border border-red-500/50 text-red-400 text-sm">
+        <div className="mb-4 p-3 rounded-xl bg-red-50 border border-red-200 text-red-600 text-sm font-medium">
           {errors.general}
         </div>
       )}
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="mb-1 block text-sm font-medium text-slate-300">Email Address</label>
+          <label className="mb-1 block text-sm font-bold text-[#073127]">Email Address</label>
           <input
             type="email"
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            className={`w-full rounded-lg border bg-slate-800/80 px-4 py-2.5 text-slate-100 transition-colors focus:border-indigo-500 focus:outline-none ${errors.email ? 'border-red-500' : 'border-white/10'}`}
+            className={`w-full rounded-xl border bg-white px-4 py-2.5 text-[#073127] transition-colors focus:border-[#004838] focus:outline-none ${errors.email ? 'border-red-500' : 'border-[#073127]/20'}`}
             placeholder="you@example.com"
             disabled={isLoading}
           />
-          {errors.email && <p className="mt-1 text-xs text-red-400">{errors.email}</p>}
+          {errors.email && <p className="mt-1 text-xs text-red-600 font-medium">{errors.email}</p>}
         </div>
 
         <div>
           <div className="mb-1 flex items-center justify-between">
-            <label className="block text-sm font-medium text-slate-300">Password</label>
-            <a href="#" className="text-xs text-indigo-400 hover:text-indigo-300">Forgot password?</a>
+            <label className="block text-sm font-bold text-[#073127]">Password</label>
+            <a href="#" className="text-xs text-[#004838] font-bold hover:text-[#073127]">Forgot password?</a>
           </div>
           <input
             type="password"
             value={formData.password}
             onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-            className={`w-full rounded-lg border bg-slate-800/80 px-4 py-2.5 text-slate-100 transition-colors focus:border-indigo-500 focus:outline-none ${errors.password ? 'border-red-500' : 'border-white/10'}`}
+            className={`w-full rounded-xl border bg-white px-4 py-2.5 text-[#073127] transition-colors focus:border-[#004838] focus:outline-none ${errors.password ? 'border-red-500' : 'border-[#073127]/20'}`}
             placeholder="••••••••"
             disabled={isLoading}
           />
-          {errors.password && <p className="mt-1 text-xs text-red-400">{errors.password}</p>}
+          {errors.password && <p className="mt-1 text-xs text-red-600 font-medium">{errors.password}</p>}
         </div>
 
         <button
           type="submit"
           disabled={isLoading}
-          className="mt-2 flex w-full items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 to-violet-500 px-4 py-3 font-semibold text-white transition hover:-translate-y-0.5"
+          className="mt-2 flex w-full items-center justify-center rounded-full bg-[#004838] px-4 py-3 font-bold text-[#E2FB6C] shadow-[0_4px_16px_rgba(0,72,56,0.3)] transition hover:-translate-y-0.5 hover:bg-[#073127]"
         >
           {isLoading ? (
-            <svg className="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24">
+            <svg className="animate-spin h-5 w-5 text-[#E2FB6C]" viewBox="0 0 24 24">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
             </svg>
@@ -180,8 +180,8 @@ export default function LoginPage() {
         </button>
       </form>
 
-      <div className="my-6 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-white/10 after:mt-0.5 after:flex-1 after:border-t after:border-white/10">
-        <p className="mx-4 mb-0 text-center text-sm font-medium text-slate-500">
+      <div className="my-6 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-[#073127]/10 after:mt-0.5 after:flex-1 after:border-t after:border-[#073127]/10">
+        <p className="mx-4 mb-0 text-center text-xs font-bold uppercase tracking-wider text-[#333F3C]/60">
           OR
         </p>
       </div>
@@ -190,7 +190,7 @@ export default function LoginPage() {
         <button 
           onClick={handleDemoLogin}
           disabled={isLoading}
-          className="flex w-full items-center justify-center rounded-full border border-indigo-500/30 bg-indigo-500/10 py-3 font-semibold text-indigo-100 transition hover:bg-indigo-500/20"
+          className="flex w-full items-center justify-center rounded-full border border-[#004838]/20 bg-[#004838]/10 py-3 font-bold text-[#073127] transition hover:bg-[#004838] hover:text-[#E2FB6C]"
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="mr-2">
             <polygon points="5 3 19 12 5 21 5 3" />
@@ -201,7 +201,7 @@ export default function LoginPage() {
         <button 
           type="button"
           onClick={handleGoogleSignIn}
-          className="flex w-full items-center justify-center rounded-full border border-white/10 bg-slate-800/70 py-3 font-semibold text-slate-200 transition hover:border-indigo-400/40 disabled:opacity-50"
+          className="flex w-full items-center justify-center rounded-full border border-[#073127]/20 bg-white py-3 font-semibold text-[#073127] transition hover:bg-[#EBEDE8] disabled:opacity-50"
           disabled={isLoading}
         >
           <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
@@ -214,9 +214,9 @@ export default function LoginPage() {
         </button>
       </div>
 
-      <p className="mt-8 text-center text-sm text-slate-400">
-        Don't have an account?{" "}
-        <Link href="/auth/register" className="font-medium text-indigo-400 hover:text-indigo-300">
+      <p className="mt-8 text-center text-sm text-[#333F3C]">
+        Don&apos;t have an account?{" "}
+        <Link href="/auth/register" className="font-bold text-[#004838] hover:text-[#073127]">
           Sign up
         </Link>
       </p>

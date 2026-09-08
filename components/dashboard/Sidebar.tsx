@@ -88,11 +88,11 @@ export default function Sidebar() {
 
   if (isPending) {
     return (
-      <aside className="hidden lg:flex w-64 shrink-0 bg-slate-950 border-r border-slate-800 min-h-screen flex-col p-5">
-        <div className="h-8 w-32 rounded-lg bg-slate-800 animate-pulse mb-8" />
+      <aside className="hidden lg:flex w-64 shrink-0 bg-white border-r border-[#073127]/10 min-h-screen flex-col p-5">
+        <div className="h-8 w-32 rounded-lg bg-[#EBEDE8] animate-pulse mb-8" />
         <div className="space-y-3 flex-1">
           {Array.from({ length: 2 }).map((_, i) => (
-            <div key={i} className="h-10 rounded-xl bg-slate-800/60 animate-pulse" />
+            <div key={i} className="h-10 rounded-xl bg-[#EBEDE8] animate-pulse" />
           ))}
         </div>
       </aside>
@@ -116,13 +116,13 @@ export default function Sidebar() {
           <Link
             key={item.label}
             href={item.href}
-            className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm transition-all ${
+            className={`flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm transition-all ${
               isActive
-                ? "bg-indigo-600/10 text-indigo-400 border border-indigo-500/20 font-semibold"
-                : "text-slate-400 hover:bg-slate-800/40 hover:text-white"
+                ? "bg-[#004838]/10 text-[#073127] border border-[#004838]/20 font-bold shadow-xs"
+                : "text-[#333F3C] hover:bg-[#004838]/5 hover:text-[#073127] font-medium"
             }`}
           >
-            <item.icon className={`h-5 w-5 transition-colors ${isActive ? "text-indigo-400" : "text-slate-500"}`} />
+            <item.icon className={`h-5 w-5 transition-colors ${isActive ? "text-[#004838]" : "text-[#333F3C]/70"}`} />
             {item.label}
           </Link>
         );
@@ -131,9 +131,9 @@ export default function Sidebar() {
   );
 
   const userCard = (
-    <div className="border-t border-slate-800/80 pt-4 mt-4">
-      <div className="flex items-center gap-3 px-3 py-3 rounded-xl bg-slate-800/40 mb-3">
-        <div className="h-9 w-9 shrink-0 overflow-hidden rounded-full bg-indigo-500/20 flex items-center justify-center text-sm font-bold text-indigo-300">
+    <div className="border-t border-[#073127]/10 pt-4 mt-4">
+      <div className="flex items-center gap-3 px-3 py-3 rounded-xl bg-[#EBEDE8]/60 border border-[#073127]/10 mb-3">
+        <div className="h-9 w-9 shrink-0 overflow-hidden rounded-full bg-[#004838] flex items-center justify-center text-sm font-bold text-[#E2FB6C]">
           {user?.image ? (
             <Image
               src={user.image}
@@ -148,13 +148,13 @@ export default function Sidebar() {
           )}
         </div>
         <div className="min-w-0 flex-1">
-          <p className="text-sm font-semibold text-white truncate">{user?.name || "User"}</p>
-          <p className="text-xs text-slate-500 truncate">{user?.email}</p>
+          <p className="text-sm font-bold text-[#073127] truncate">{user?.name || "User"}</p>
+          <p className="text-xs text-[#333F3C]/80 truncate">{user?.email}</p>
         </div>
       </div>
       <button
         onClick={handleLogout}
-        className="flex w-full items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-400 hover:text-red-400 hover:bg-red-500/10 transition-all duration-150"
+        className="flex w-full items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-[#333F3C] hover:text-red-600 hover:bg-red-50 transition-all duration-150"
       >
         <LogoutIcon className="h-5 w-5" />
         Sign Out
@@ -165,24 +165,24 @@ export default function Sidebar() {
   return (
     <>
       {/* Desktop sidebar */}
-      <aside className="hidden lg:flex w-64 shrink-0 bg-slate-950 border-r border-slate-800/80 sticky top-[72px] h-[calc(100vh-72px)] flex-col">
-        <div className="px-5 py-6 border-b border-slate-800/80">
+      <aside className="hidden lg:flex w-64 shrink-0 bg-white border-r border-[#073127]/10 sticky top-[72px] h-[calc(100vh-72px)] flex-col">
+        <div className="px-5 py-6 border-b border-[#073127]/10">
           <Link href="/" className="flex items-center gap-3 no-underline group">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-violet-500 shadow-[0_4px_16px_rgba(99,102,241,0.4)] transition-all duration-300 group-hover:scale-105">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#004838] shadow-sm transition-all duration-300 group-hover:scale-105">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E2FB6C" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M12 2L2 7l10 5 10-5-10-5z" />
                 <path d="M2 17l10 5 10-5" />
                 <path d="M2 12l10 5 10-5" />
               </svg>
             </div>
-            <span className="text-lg font-bold tracking-tight text-slate-100">
-              Skill<span className="text-indigo-400">Pilot</span>
+            <span className="text-lg font-bold tracking-tight text-[#073127]">
+              Skill<span className="text-[#004838]">Pilot</span>
             </span>
           </Link>
         </div>
 
         <div className="flex-1 px-3 py-5">
-          <p className="px-3 mb-3 text-[10px] font-semibold uppercase tracking-widest text-slate-500">Menu</p>
+          <p className="px-3 mb-3 text-[10px] font-bold uppercase tracking-widest text-[#333F3C]/70">Menu</p>
           {navContent}
         </div>
 
@@ -195,7 +195,7 @@ export default function Sidebar() {
       <button
         onClick={() => setDrawerOpen(true)}
         aria-label="Open navigation menu"
-        className="lg:hidden fixed top-20 right-4 z-40 min-w-10 w-10 h-10 p-0 flex items-center justify-center rounded-xl bg-slate-950/90 border border-slate-800 text-slate-300 backdrop-blur-md transition-all shadow-lg shadow-black/40 hover:text-white hover:border-slate-700"
+        className="lg:hidden fixed top-20 right-4 z-40 min-w-10 w-10 h-10 p-0 flex items-center justify-center rounded-xl bg-white/90 border border-[#073127]/15 text-[#073127] backdrop-blur-md transition-all shadow-md hover:text-[#004838]"
       >
         <SidebarIcon className="w-5 h-5" />
       </button>
@@ -203,41 +203,41 @@ export default function Sidebar() {
       {/* Mobile drawer backdrop */}
       {drawerOpen && (
         <div
-          className="lg:hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm transition-opacity"
+          className="lg:hidden fixed inset-0 z-50 bg-[#073127]/40 backdrop-blur-xs transition-opacity"
           onClick={() => setDrawerOpen(false)}
         />
       )}
 
       {/* Mobile drawer panel */}
       <div
-        className={`lg:hidden fixed top-0 left-0 z-50 h-full w-72 bg-slate-950 border-r border-slate-800/80 flex flex-col transform transition-transform duration-300 ease-in-out ${
+        className={`lg:hidden fixed top-0 left-0 z-50 h-full w-72 bg-white border-r border-[#073127]/10 flex flex-col transform transition-transform duration-300 ease-in-out ${
           drawerOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between px-5 py-5 border-b border-slate-800/80">
+        <div className="flex items-center justify-between px-5 py-5 border-b border-[#073127]/10">
           <Link href="/" className="flex items-center gap-3 no-underline group" onClick={() => setDrawerOpen(false)}>
-             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-violet-500 shadow-[0_4px_16px_rgba(99,102,241,0.4)]">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#004838] shadow-sm">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E2FB6C" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M12 2L2 7l10 5 10-5-10-5z" />
                 <path d="M2 17l10 5 10-5" />
                 <path d="M2 12l10 5 10-5" />
               </svg>
             </div>
-            <span className="text-lg font-bold tracking-tight text-slate-100">
-              Skill<span className="text-indigo-400">Pilot</span>
+            <span className="text-lg font-bold tracking-tight text-[#073127]">
+              Skill<span className="text-[#004838]">Pilot</span>
             </span>
           </Link>
           <button
             onClick={() => setDrawerOpen(false)}
             aria-label="Close navigation menu"
-            className="h-8 w-8 flex items-center justify-center rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition"
+            className="h-8 w-8 flex items-center justify-center rounded-lg text-[#333F3C] hover:text-[#073127] hover:bg-[#EBEDE8] transition"
           >
             <CloseIcon className="h-5 w-5" />
           </button>
         </div>
 
         <div className="flex-1 px-3 py-5">
-          <p className="px-3 mb-3 text-[10px] font-semibold uppercase tracking-widest text-slate-500">Menu</p>
+          <p className="px-3 mb-3 text-[10px] font-bold uppercase tracking-widest text-[#333F3C]/70">Menu</p>
           {navContent}
         </div>
 

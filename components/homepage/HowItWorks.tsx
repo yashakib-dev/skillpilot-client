@@ -25,17 +25,17 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="relative overflow-hidden bg-slate-950 py-24 sm:py-28" id="how-it-works">
-      <div className="absolute left-0 top-1/2 hidden h-[1px] w-full -translate-y-1/2 bg-gradient-to-r from-transparent via-indigo-500/30 to-transparent lg:block" />
+    <section className="relative overflow-hidden bg-[#EBEDE8] py-24 sm:py-28" id="how-it-works">
+      <div className="absolute left-0 top-1/2 hidden h-[1px] w-full -translate-y-1/2 bg-gradient-to-r from-transparent via-[#004838]/20 to-transparent lg:block" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mb-16 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-2xl">
-            <span className="mb-5 inline-flex items-center rounded-full border border-indigo-400/30 bg-indigo-500/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-indigo-300">
+            <span className="mb-5 inline-flex items-center rounded-full border border-[#004838]/20 bg-[#004838]/10 px-4 py-2 text-xs md:text-sm font-bold uppercase tracking-[0.18em] text-[#073127]">
               The Process
             </span>
-            <h2 className="text-3xl font-bold tracking-tight text-slate-100 sm:text-4xl">How SkillPilot Works</h2>
-            <p className="mt-4 text-lg text-slate-400">
+            <h2 className="text-3xl font-bold tracking-tight text-[#073127] sm:text-4xl">How SkillPilot Works</h2>
+            <p className="mt-4 text-lg text-[#333F3C]">
               From absolute beginner to job-ready professional in four simple steps. We take the complexity out of career planning.
             </p>
           </div>
@@ -46,23 +46,23 @@ export default function HowItWorks() {
             <div key={idx} className="relative group">
               {/* Connector line for mobile/tablet */}
               {idx !== steps.length - 1 && (
-                <div className="absolute left-[3rem] top-8 z-0 block h-[2px] w-[calc(100%-2rem)] bg-white/10 lg:hidden" />
+                <div className="absolute left-[3rem] top-8 z-0 block h-[2px] w-[calc(100%-2rem)] bg-[#073127]/10 lg:hidden" />
               )}
 
-              <div className="relative z-10 h-full overflow-hidden rounded-3xl border border-white/10 bg-slate-900/80 p-8 shadow-[0_20px_60px_rgba(15,23,42,0.4)] transition-all duration-300 hover:-translate-y-1 hover:border-indigo-400/40">
-                <span className="pointer-events-none absolute -bottom-4 -right-4 select-none text-8xl font-black text-white/[0.03] transition-colors duration-500 group-hover:text-indigo-400/25">
+              <div className="relative z-10 h-full overflow-hidden rounded-3xl border border-[#073127]/10 bg-white p-8 shadow-[0_8px_30px_rgba(7,49,39,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-[#004838]/30 hover:shadow-[0_12px_40px_rgba(7,49,39,0.1)]">
+                <span className="pointer-events-none absolute -bottom-4 -right-4 select-none text-8xl font-black text-[#073127]/[0.05] transition-colors duration-500 group-hover:text-[#004838]/15">
                   {step.number}
                 </span>
 
-                <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-full border border-white/10 bg-slate-800/80 shadow-lg transition-all duration-300 group-hover:border-indigo-400/40 group-hover:shadow-[0_0_30px_rgba(99,102,241,0.2)]">
-                  <span className="text-xl font-bold text-indigo-300">{step.number}</span>
+                <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-full bg-[#004838] shadow-md transition-all duration-300 group-hover:scale-105">
+                  <span className="text-lg font-bold text-[#E2FB6C]">{step.number}</span>
                 </div>
 
-                <h3 className="mb-4 text-xl font-bold text-slate-100">
+                <h3 className="mb-4 text-xl font-bold text-[#073127]">
                   {step.title}
                 </h3>
 
-                <p className="relative z-10 leading-relaxed text-slate-400">
+                <p className="relative z-10 leading-relaxed text-[#333F3C]">
                   {step.description}
                 </p>
               </div>
