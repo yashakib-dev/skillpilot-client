@@ -116,11 +116,10 @@ export default function Sidebar() {
           <Link
             key={item.label}
             href={item.href}
-            className={`flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm transition-all ${
-              isActive
+            className={`flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm transition-all ${isActive
                 ? "bg-[#004838]/10 text-[#073127] border border-[#004838]/20 font-bold shadow-xs"
                 : "text-[#333F3C] hover:bg-[#004838]/5 hover:text-[#073127] font-medium"
-            }`}
+              }`}
           >
             <item.icon className={`h-5 w-5 transition-colors ${isActive ? "text-[#004838]" : "text-[#333F3C]/70"}`} />
             {item.label}
@@ -210,13 +209,12 @@ export default function Sidebar() {
 
       {/* Mobile drawer panel */}
       <div
-        className={`lg:hidden fixed top-0 left-0 z-50 h-full w-72 bg-white border-r border-[#073127]/10 flex flex-col transform transition-transform duration-300 ease-in-out ${
-          drawerOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+        className={`lg:hidden fixed top-0 left-0 z-50 h-full w-72 bg-white border-r border-[#073127]/10 flex flex-col transform transition-transform duration-300 ease-in-out ${drawerOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
       >
         <div className="flex items-center justify-between px-5 py-5 border-b border-[#073127]/10">
           <Link href="/" className="flex items-center gap-3 no-underline group" onClick={() => setDrawerOpen(false)}>
-             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#004838] shadow-sm">
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#004838] shadow-sm">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E2FB6C" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M12 2L2 7l10 5 10-5-10-5z" />
                 <path d="M2 17l10 5 10-5" />

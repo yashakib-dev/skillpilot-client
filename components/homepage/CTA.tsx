@@ -9,8 +9,8 @@ export default function CTA() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#004838]/10 rounded-full blur-[100px]" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="relative mx-auto max-w-4xl overflow-hidden rounded-[32px] border border-[#004838]/30 bg-[#073127] p-10 text-center shadow-[0_20px_60px_rgba(7,49,39,0.2)] md:p-16">
+      <div className="relative z-10 mx-auto max-w-8xl px-6 lg:px-8">
+        <div className="relative mx-auto max-w-6xl overflow-hidden rounded-[32px] border border-[#004838]/30 bg-[#073127] p-10 text-center shadow-[0_20px_60px_rgba(7,49,39,0.2)] md:p-16">
           <div className="absolute inset-0 bg-gradient-to-br from-[#004838]/40 to-transparent pointer-events-none" />
 
           <div className="relative z-10">

@@ -64,8 +64,8 @@ function Pagination({ currentPage, totalPages, onPageChange }: PaginationProps) 
               aria-current={currentPage === page ? "page" : undefined}
               aria-label={`Page ${page}`}
               className={`w-9 h-9 rounded-xl text-sm font-bold transition-all duration-200 ${currentPage === page
-                  ? "bg-[#004838] text-[#E2FB6C] shadow-sm"
-                  : "border border-[#073127]/20 bg-white text-[#073127] hover:border-[#004838] hover:bg-[#004838]/10"
+                ? "bg-[#004838] text-[#E2FB6C] shadow-sm"
+                : "border border-[#073127]/20 bg-white text-[#073127] hover:border-[#004838] hover:bg-[#004838]/10"
                 }`}
             >
               {page}
