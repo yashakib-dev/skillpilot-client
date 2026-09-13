@@ -2,8 +2,7 @@
 
 SkillPilot is an AI-powered career planning platform built with Next.js, React, TypeScript, and Better Auth. It helps users discover careers, create personalized learning goals, generate AI roadmaps, track their progress, and chat with an AI career mentor for guidance.
 
-This repository contains the frontend client only. The app integrates with a separate backend server for career data and AI roadmap generation.
-
+![Home](public/skillpilot.png)
 ## Live Application
 
 - Production frontend: https://skillpilot-client.vercel.app
